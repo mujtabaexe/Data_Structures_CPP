@@ -28,7 +28,7 @@ int main()
     //  This will add 4 bytes to the address and the address wil point to the next address and value present on that address will be
     // stored in c and will point to its value using *. It occurs basically due to memory's approach from Bottom to Top approach
     cout << "The value of num3 is: " << *c << endl;
-    // correct form is:
+    // correct form if you wantto increment the value stored in *c is:
     // (*c)++;
 
     (*c) = (*c) * 2;
