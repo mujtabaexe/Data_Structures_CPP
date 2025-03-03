@@ -32,12 +32,13 @@ int main()
     // (*c)++;
 
     (*c) = (*c) * 2;
-    cout << "The value of c after multiplying with 2 is: " << *c;
+    cout << "The value of c after multiplying with 2 is: " << *c << endl;
 
     // Copying a pointer
     int num4 = 7;
     int *d = &num4;
     cout << "The value of d is: " << *d << endl;
-    int *e = d;
+    // int *e = *d; This gives an error
+    int *e = *d;
     cout << "The value of e is: " << *e << endl;
 }
