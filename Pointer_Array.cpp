@@ -16,7 +16,7 @@ int main()
     cout << "Adding 1 to 0th element: " << *(arr) + 1 << endl;
 
     int i = 1;
-    cout << i[arr];
+    cout <<"The first element of array is: "<< i[arr] << endl;
 
     int *ptr = arr;
     cout << "Size of whole array is: " << sizeof(ptr) << endl;
