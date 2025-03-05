@@ -2,6 +2,18 @@
 #include <limits> // For numeric_limits
 using namespace std;
 
+// Finding length of array
+
+int getLength(char name[])
+{
+    int count = 0;
+    for (int i = 0; name[i] != '\0'; i++)
+    {
+        count++;
+    }
+    return count;
+}
+
 int main()
 {
     char name[10];
@@ -17,11 +29,13 @@ int main()
     cin.getline(a, 10);
     cout << "Stored name is: " << a << endl;
 
-
-    if (cin.fail()) {
+    if (cin.fail())
+    {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    } else {
+    }
+    else
+    {
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Just remove leftover '\n'
     }
 
@@ -37,6 +51,16 @@ int main()
     {
         cout << n[i] << " ";
     }
+    cout << endl;
 
+    cout << "The length of the char array is: " << getLength(name) << endl;
+
+    char temp = 'z';
+    char *p = &temp;
+    cout <<"The value of temp is: "<< p << endl; //It will print the extra values that is remained in the memory
+    
+    char ch[5]="ahma"; // Last charachter of char array should always be null charachter
+    cout << ch << endl;
+    
     return 0;
 }
