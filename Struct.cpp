@@ -18,7 +18,7 @@ typedef struct Student
 int main()
 {
 
-    struct Employee ahmad;
+    Employee ahmad;
     ahmad.eID = 7;
     ahmad.favChar = 'a';
     ahmad.salary = 500000;
