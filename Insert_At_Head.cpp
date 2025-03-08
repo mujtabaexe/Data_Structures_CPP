@@ -7,47 +7,34 @@ struct Node
     Node *next;
 };
 
-Node *head = NULL;
-Node *tail = NULL;
+Node *head = 0;
+Node *tail = 0;
 
-void insert(int data)
-{
-    if (head == NULL && tail == NULL)
-    {
-
-        Node *newNode = new Node();
+void insert(int data){
+    if(head== NULL && tail == NULL){
+        Node* newNode = new Node();
         newNode->data = data;
         newNode->next = NULL;
 
         head = newNode;
         tail = newNode;
-        
     }else{
-
         Node* newNode = new Node();
         newNode->data = data;
-        newNode->next = NULL;
+        newNode->next = head;
 
-        tail->next = newNode;
-        tail = newNode;
-
+        head = newNode;
     }
 }
-
 void print(){
     Node* temp = head;
-    while(true){
-        if(temp->next == NULL){
-            break;
-        }
+    while(temp!=NULL){
+        cout << temp->data<< " ";
         temp = temp->next;
-        cout << temp->data << endl;
-        cout << temp->next << endl;
     }
 }
 
-int main()
-{
+int main(){
     insert(10);
     insert(20);
     insert(30);
