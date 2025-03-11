@@ -12,67 +12,52 @@ Node *tail = NULL;
 
 void insert(int data)
 {
+
+    Node *newNode = new Node();
+    newNode->data = data;
+
     if (head == NULL && tail == NULL)
     {
-        Node *newNode = new Node();
-        newNode->data = data;
-        newNode->next = NULL;
-
         head = newNode;
         tail = newNode;
     }
     else
     {
-        Node *newNode = new Node();
-        newNode->data = data;
-        newNode->next = head;
-
-        head = newNode;
+        tail->next = newNode;
+        tail = newNode;
     }
 }
 
-void valDelete(int data)
+void index_delete(int index)
 {
+    Node *temp = head;
+    int count = 0;
+
     if (head == NULL)
         return;
-    Node *temp = head;
-    if (head->data == data && tail->data == data)
+    if (head->next == NULL && tail->next == NULL)
     {
         head = NULL;
         tail = NULL;
-
         delete (temp);
         return;
     }
-    else if (head->data == data)
+
+    else if (index == count)
     {
         head = temp->next;
         delete (temp);
         return;
     }
 
-    else if (tail->data == data)
-    {
-        while (temp->next != tail)
-        {
-            temp = temp->next;
-        }
-        if (temp->next == tail)
-        {
-
-            tail = temp;
-            temp->next = NULL;
-            delete (temp->next);
-            return;
-        }
-    }
     else
     {
+        
         Node *tempForward = temp->next;
-        while (tempForward != NULL)
+        while (tempForward)
         {
-
-            if (tempForward->data == data)
+            count++;
+            if (index == count)
             {
                 temp->next = tempForward->next;
                 delete (tempForward);
@@ -83,11 +68,11 @@ void valDelete(int data)
         }
     }
 }
-
 void print()
 {
     Node *temp = head;
-    while (temp != NULL)
+
+    while (temp)
     {
         cout << temp->data << " ";
         temp = temp->next;
@@ -97,6 +82,7 @@ void print()
 
 int main()
 {
+
     insert(10);
     insert(20);
     insert(30);
@@ -104,6 +90,7 @@ int main()
     insert(50);
 
     print();
-    valDelete(10);
+
+    index_delete(4);
     print();
 }
