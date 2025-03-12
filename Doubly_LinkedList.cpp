@@ -69,14 +69,14 @@ void valDelete(int data)
 
     else
     {
-        Node *tempForward = temp->next->next;
+        Node *tempForward = temp->next;
         while (temp)
         {
-            if (temp->next->data == data)
+            if (tempForward->data == data)
             {
-                delete (temp->next);
-                temp->next = tempForward;
-                tempForward->prev = temp;
+                temp->next = tempForward->next;
+                tempForward->next->prev = temp;
+                delete (tempForward);
                 return;
             }
             temp = temp->next;
