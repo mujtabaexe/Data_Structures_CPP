@@ -5,6 +5,8 @@
         "ostream": "cpp",
         "limits": "cpp",
         "istream": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "vector": "cpp",
+        "xstring": "cpp"
     }
 }
